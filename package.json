@@ -1,0 +1,29 @@
+{
+  "name": "glfw.c",
+  "version": "3.4.0",
+  "description": "A multi-platform library for OpenGL, OpenGL ES and Vulkan development on the desktop; Marcus Geelnard (2002).",
+  "keywords": [
+    "c",
+    "windowing",
+    "library",
+    "opengl",
+    "graphics",
+    "window",
+    "vulkan",
+    "cross-platform"
+  ],
+  "homepage": "https://github.com/nodef/glfw.c#readme",
+  "bugs": {
+    "url": "https://github.com/nodef/glfw.c/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nodef/glfw.c.git"
+  },
+  "license": "Zlib",
+  "author": "wolfram77@gmail.com",
+  "main": "GLFW/glfw3.h",
+  "scripts": {
+    "test": "bash build.sh test"
+  }
+}
