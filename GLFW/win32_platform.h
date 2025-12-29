@@ -24,6 +24,7 @@
 //    distribution.
 //
 //========================================================================
+#pragma once  // FIX: Ensure single inclusion (@wolfram77)
 
 // We don't need all the fancy stuff
 #ifndef NOMINMAX
@@ -69,6 +70,11 @@
 #include <dinput.h>
 #include <xinput.h>
 #include <dbt.h>
+
+// FIX: Define APIENTRY if not defined (@wolfram77)
+#ifndef APIENTRY
+ #define APIENTRY __stdcall
+#endif
 
 // HACK: Define macros that some windows.h variants don't
 #ifndef WM_MOUSEHWHEEL
@@ -624,4 +630,3 @@ void _glfwTerminateWGL(void);
 GLFWbool _glfwCreateContextWGL(_GLFWwindow* window,
                                const _GLFWctxconfig* ctxconfig,
                                const _GLFWfbconfig* fbconfig);
-

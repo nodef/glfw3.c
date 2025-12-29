@@ -1,6 +1,6 @@
 {
   "name": "glfw3.c",
-  "version": "3.4.0",
+  "version": "3.4.2",
   "description": "A multi-platform library for OpenGL, OpenGL ES and Vulkan development on the desktop; Marcus Geelnard (2002).",
   "keywords": [
     "c",
@@ -25,5 +25,8 @@
   "main": "GLFW/glfw3.h",
   "scripts": {
     "test": "bash build.sh test"
+  },
+  "devDependencies": {
+    "glad.c": "^1.2025.11"
   }
 }

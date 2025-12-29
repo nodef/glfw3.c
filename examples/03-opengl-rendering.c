@@ -1,7 +1,8 @@
 // This example demonstrates using OpenGL with GLFW to render a triangle.
+#define GLAD_GL_IMPLEMENTATION
+#include <glad/gl.h>
 #define GLFW_IMPLEMENTATION
 #include <GLFW/glfw3.h>
-#include <glad/glad.h>
 #include <stdio.h>
 
 // Vertex shader source code
@@ -46,7 +47,7 @@ int main(void) {
     glfwMakeContextCurrent(window);
 
     // Load OpenGL function pointers using GLAD
-    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
+    if (!gladLoaderLoadGL()) {
         fprintf(stderr, "Failed to initialize GLAD\n");
         return -1;
     }

@@ -1,5 +1,33 @@
 // Core/Common files (always included)
 #pragma once
+
+// FIX: Define missing OCR_* constants (@wolfam77)
+// For some reason, including windows.h with OEMRESOURCE defined
+// does not always define these constants.
+#ifdef _GLFW_WIN32
+#ifndef OEMRESOURCE
+#define OEMRESOURCE
+#endif
+#include <windows.h>
+#ifndef OCR_NORMAL
+#define OCR_NORMAL          32512
+#define OCR_IBEAM           32513
+#define OCR_WAIT            32514
+#define OCR_CROSS           32515
+#define OCR_UP              32516
+#define OCR_SIZE            32640   /* OBSOLETE: use OCR_SIZEALL */
+#define OCR_ICON            32641   /* OBSOLETE: use OCR_NORMAL */
+#define OCR_SIZENWSE        32642
+#define OCR_SIZENESW        32643
+#define OCR_SIZEWE          32644
+#define OCR_SIZENS          32645
+#define OCR_SIZEALL         32646
+#define OCR_ICOCUR          32647   /* OBSOLETE: use OIC_WINLOGO */
+#define OCR_NO              32648
+#endif
+#endif
+
+// Auto-link windows libraries (@wolfam77)
 #ifdef _GLFW_WIN32
 #pragma comment(lib, "gdi32.lib")
 #pragma comment(lib, "user32.lib")
@@ -18,6 +46,7 @@
 #include "window.c"
 
 // Null platform (for unsupported platforms)
+// FIX: Avoid including null platform when not needed (@wolfam77)
 #if !defined(_GLFW_WIN32) && !defined(_GLFW_COCOA) && !defined(_GLFW_X11) && !defined(_GLFW_WAYLAND)
 #include "null_init.c"
 #include "null_joystick.c"
@@ -27,12 +56,16 @@
 
 // Windows platform
 #if defined(_GLFW_WIN32)
+#include "win32_platform.h"
 #include "wgl_context.c"
 #include "win32_init.c"
+#include "win32_joystick.h"
 #include "win32_joystick.c"
 #include "win32_module.c"
 #include "win32_monitor.c"
+#include "win32_thread.h"
 #include "win32_thread.c"
+#include "win32_time.h"
 #include "win32_time.c"
 #include "win32_window.c"
 #endif

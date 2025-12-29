@@ -46,7 +46,7 @@
 #endif
 
 #define GLFW_INCLUDE_NONE
-#include "glfw3.h"
+#include "glfw3.h"  // Adjust include path (@wolfam77)
 
 #define _GLFW_INSERT_FIRST      0
 #define _GLFW_INSERT_LAST       1
@@ -78,6 +78,7 @@ typedef struct _GLFWjoystick    _GLFWjoystick;
 typedef struct _GLFWtls         _GLFWtls;
 typedef struct _GLFWmutex       _GLFWmutex;
 
+// FIX: GV_NUM_EXTENSIONS is redefined, among other redefinitions (@wolfam77)
 #ifndef GL_VERSION
 #define GL_VERSION 0x1f02
 #endif
@@ -339,7 +340,7 @@ typedef VkResult (APIENTRY * PFN_vkEnumerateInstanceExtensionProperties)(const c
 #include "platform.h"
 
 #define GLFW_NATIVE_INCLUDE_NONE
-#include "glfw3native.h"
+#include "glfw3native.h"  // Adjust include path (@wolfam77)
 
 // Checks for whether the library has been initialized
 #define _GLFW_REQUIRE_INIT()                         \

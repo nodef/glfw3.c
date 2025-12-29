@@ -78,7 +78,7 @@ GLFWbool _glfwSelectPlatform(int desiredID, _GLFWplatform* platform)
     #if !defined(_GLFW_WIN32) && !defined(_GLFW_COCOA) && !defined(_GLFW_X11) && !defined(_GLFW_WAYLAND)
     if (desiredID == GLFW_PLATFORM_NULL)
         return _glfwConnectNull(desiredID, platform);
-    else
+    else  // FIX: _glfwConnectNull is not defined (@wolfam77)
     #endif
     if (count == 0)
     {

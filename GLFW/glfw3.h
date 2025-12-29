@@ -96,7 +96,7 @@ extern "C" {
  #define _WIN32
 #endif /* _WIN32 */
 
-// Define the appropriate platform if not already defined by the user
+// Define the appropriate platform if not already defined by the user (@wolfram77)
 #if !defined(_GLFW_WIN32) && !defined(_GLFW_COCOA) && !defined(_GLFW_X11) &&   \
     !defined(_GLFW_WAYLAND)
 #if defined(_WIN32) || defined(_WIN64)

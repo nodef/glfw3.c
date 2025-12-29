@@ -2590,4 +2590,3 @@ GLFWAPI HWND glfwGetWin32Window(GLFWwindow* handle)
 }
 
 #endif // _GLFW_WIN32
-

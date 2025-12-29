@@ -24,6 +24,7 @@
 //    distribution.
 //
 //========================================================================
+#pragma once  // FIX: Ensure single inclusion (@wolfram77)
 
 // This is a workaround for the fact that glfw3.h needs to export APIENTRY (for
 // example to allow applications to correctly declare a GL_KHR_debug callback)
@@ -50,4 +51,3 @@ typedef struct _GLFWmutexWin32
     GLFWbool            allocated;
     CRITICAL_SECTION    section;
 } _GLFWmutexWin32;
-

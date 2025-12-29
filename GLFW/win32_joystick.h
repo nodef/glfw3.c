@@ -23,6 +23,7 @@
 //    distribution.
 //
 //========================================================================
+#pragma once  // FIX: Ensure single inclusion (@wolfram77)
 
 #define GLFW_WIN32_JOYSTICK_STATE         _GLFWjoystickWin32 win32;
 #define GLFW_WIN32_LIBRARY_JOYSTICK_STATE
@@ -48,4 +49,3 @@ typedef struct _GLFWjoystickWin32
 
 void _glfwDetectJoystickConnectionWin32(void);
 void _glfwDetectJoystickDisconnectionWin32(void);
-
