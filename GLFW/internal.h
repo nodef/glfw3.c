@@ -46,7 +46,7 @@
 #endif
 
 #define GLFW_INCLUDE_NONE
-#include "glfw3.h"  // Adjust include path (@wolfam77)
+#include "glfw3.h"  // Adjust include path (@wolfram77)
 
 #define _GLFW_INSERT_FIRST      0
 #define _GLFW_INSERT_LAST       1
@@ -78,7 +78,7 @@ typedef struct _GLFWjoystick    _GLFWjoystick;
 typedef struct _GLFWtls         _GLFWtls;
 typedef struct _GLFWmutex       _GLFWmutex;
 
-// FIX: GV_NUM_EXTENSIONS is redefined, among other redefinitions (@wolfam77)
+// FIX: GV_NUM_EXTENSIONS is redefined, among other redefinitions (@wolfram77)
 #ifndef GL_VERSION
 #define GL_VERSION 0x1f02
 #endif
@@ -276,6 +276,8 @@ typedef GLFWglproc (GLAPIENTRY * PFN_OSMesaGetProcAddress)(const char*);
 #define OSMesaGetDepthBuffer _glfw.osmesa.GetDepthBuffer
 #define OSMesaGetProcAddress _glfw.osmesa.GetProcAddress
 
+// FIX: VK_NULL_HANDLE redefinition (@wolfram77)
+#ifndef VK_NULL_HANDLE
 #define VK_NULL_HANDLE 0
 
 typedef void* VkInstance;
@@ -335,12 +337,15 @@ typedef void (APIENTRY * PFN_vkVoidFunction)(void);
 
 typedef PFN_vkVoidFunction (APIENTRY * PFN_vkGetInstanceProcAddr)(VkInstance,const char*);
 typedef VkResult (APIENTRY * PFN_vkEnumerateInstanceExtensionProperties)(const char*,uint32_t*,VkExtensionProperties*);
+#endif
+#ifndef vkGetInstanceProcAddr  // This prevents redefinition errors (@wolfram77)
 #define vkGetInstanceProcAddr _glfw.vk.GetInstanceProcAddr
+#endif
 
 #include "platform.h"
 
 #define GLFW_NATIVE_INCLUDE_NONE
-#include "glfw3native.h"  // Adjust include path (@wolfam77)
+#include "glfw3native.h"  // Adjust include path (@wolfram77)
 
 // Checks for whether the library has been initialized
 #define _GLFW_REQUIRE_INIT()                         \

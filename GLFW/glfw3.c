@@ -1,7 +1,7 @@
 // Core/Common files (always included)
 #pragma once
 
-// FIX: Define missing OCR_* constants (@wolfam77)
+// FIX: Define missing OCR_* constants (@wolfram77)
 // For some reason, including windows.h with OEMRESOURCE defined
 // does not always define these constants.
 #ifdef _GLFW_WIN32
@@ -27,7 +27,7 @@
 #endif
 #endif
 
-// Auto-link windows libraries (@wolfam77)
+// Auto-link windows libraries (@wolfram77)
 #ifdef _GLFW_WIN32
 #pragma comment(lib, "gdi32.lib")
 #pragma comment(lib, "user32.lib")
@@ -46,7 +46,7 @@
 #include "window.c"
 
 // Null platform (for unsupported platforms)
-// FIX: Avoid including null platform when not needed (@wolfam77)
+// FIX: Avoid including null platform when not needed (@wolfram77)
 #if !defined(_GLFW_WIN32) && !defined(_GLFW_COCOA) && !defined(_GLFW_X11) && !defined(_GLFW_WAYLAND)
 #include "null_init.c"
 #include "null_joystick.c"
